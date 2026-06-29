@@ -20,7 +20,7 @@ window.addEventListener('load', () => {
 
 (() => {
   const typing = document.getElementById('typing');
-  const text = 'มีบางอย่างที่เค้าตั้งใจทำให้เธอ ❤️';
+  const text = 'มีบางอย่างที่เค้าตั้งใจทำให้ให้ที่รัก ❤️';
   let i = 0;
 
   function type() {
