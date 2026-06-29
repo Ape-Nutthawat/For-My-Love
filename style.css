@@ -15,28 +15,32 @@ body {
 /* =========================
    GLOBAL SECTION
 ========================= */
-section {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 80px;
-  position: relative;
-  z-index: 10;
+section{
+    min-height:100svh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    padding:clamp(20px,5vw,80px);
+
+    position:relative;
+    z-index:10;
 }
 
 /* =========================
    HEADINGS
 ========================= */
 h1 {
-  font-size: 70px;
+  font-size:clamp(40px,7vw,70px);
+  text-align:center;
+  line-height:1.2;
   font-family: "Great Vibes", cursive;
   color: #ff4f87;
 }
 
 h2 {
-  font-size: 36px;
+  font-size:clamp(22px,4vw,36px);
   color: #ff4f87;
   margin-bottom: 20px;
 }
@@ -117,11 +121,22 @@ canvas {
   background: linear-gradient(180deg, #ffd8e8, #fff);
 }
 
-#typing {
-  font-size: 22px;
-  margin-top: 20px;
-  min-height: 60px;
-  opacity: 0.9;
+#typing{
+
+    font-size:clamp(16px,2.5vw,22px);
+
+    margin-top:20px;
+
+    max-width:700px;
+
+    width:100%;
+
+    padding-inline:15px;
+
+    line-height:1.7;
+
+    text-align:center;
+
 }
 
 /* =========================
@@ -159,9 +174,10 @@ canvas {
 
 .envelope {
   position: relative;
-  width: 420px;
-  height: 280px;
-  margin: 60px auto;
+  width:min(420px,92vw);
+  aspect-ratio:3/2;
+  height:auto;
+  margin:60px auto;
 
   perspective: 1400px;
   transform-style: preserve-3d; /* 🔥 สำคัญ */
@@ -219,7 +235,8 @@ canvas {
 
   transform: translate(-50%, 60px);
 
-  padding: 28px;
+  padding:clamp(18px,3vw,28px);
+  overflow:auto;
 
   box-shadow:
     0 20px 45px rgba(0,0,0,0.18);
@@ -256,8 +273,8 @@ canvas {
    GALLERY (FIXED PRO)
 ========================= */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(min(220px,100%),1fr));
   gap: 18px;
 
   width: 100%;
@@ -267,7 +284,8 @@ canvas {
 
 .grid img {
   width: 100%;
-  height: 260px;
+  aspect-ratio:3/4;
+  height:auto;
 
   object-fit: cover;
   border-radius: 16px;
@@ -338,4 +356,103 @@ canvas {
 #letterSection:not(.hidden) {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ===================================================
+   RESPONSIVE
+=================================================== */
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+button{
+
+    max-width:320px;
+
+    width:100%;
+}
+
+@media (max-width:1024px){
+
+    .grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    section{
+
+        padding:35px 18px;
+
+    }
+
+    h1{
+
+        line-height:1.15;
+
+    }
+
+    .envelope{
+
+        width:90vw;
+
+    }
+
+    .letter{
+
+        font-size:15px;
+
+        line-height:1.7;
+
+    }
+
+    .grid{
+
+        gap:12px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    h1{
+
+        font-size:42px;
+
+    }
+
+    h2{
+
+        font-size:24px;
+
+    }
+
+    .grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .grid img{
+
+        border-radius:14px;
+
+    }
+
+    .letter{
+
+        font-size:14px;
+
+        padding:18px;
+
+    }
+
 }
